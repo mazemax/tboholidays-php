@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions name="HotelService" targetNamespace="http://tempuri.org/"
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex"
+                  xmlns:i0="http://TekTravel/HotelBookingApi"
+                  xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+                  xmlns:wsa10="http://www.w3.org/2005/08/addressing"
+                  xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"
+                  xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy"
+                  xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract"
+                  xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+                  xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing"
+                  xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata"
+                  xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://tempuri.org/"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl"
+                  xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">
+    <wsp:Policy wsu:Id="WSHttpBinding_IHotelService_policy">
+        <wsp:ExactlyOne>
+            <wsp:All>
+                <wsaw:UsingAddressing/>
+            </wsp:All>
+        </wsp:ExactlyOne>
+    </wsp:Policy>
+    <wsdl:import namespace="http://TekTravel/HotelBookingApi"
+                 location="http://api.tbotechnology.in/HotelAPI_V7/HotelService.svc?wsdl=wsdl0"/>
+    <wsdl:types/>
+    <wsdl:binding name="WSHttpBinding_IHotelService" type="i0:IHotelService">
+        <wsp:PolicyReference URI="#WSHttpBinding_IHotelService_policy"/>
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="HotelSearch">
+            <soap12:operation soapAction="http://TekTravel/HotelBookingApi/HotelSearch" style="document"/>
+            <wsdl:input name="HotelSearchRequest">
+                <soap12:header message="i0:HotelSearchRequest_Headers" part="Credentials" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="HotelSearchResponse">
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="AvailableHotelRooms">
+            <soap12:operation soapAction="http://TekTravel/HotelBookingApi/AvailableHotelRooms" style="document"/>
+            <wsdl:input name="HotelRoomAvailabilityRequest">
+                <soap12:header message="i0:HotelRoomAvailabilityRequest_Headers" part="Credentials" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="HotelRoomAvailabilityResponse">
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="HotelCancellationPolicy">
+            <soap12:operation soapAction="http://TekTravel/HotelBookingApi/HotelCancellationPolicy" style="document"/>
+            <wsdl:input name="HotelCancellationPolicyRequest">
+                <soap12:header message="i0:HotelCancellationPolicyRequest_Headers" part="Credentials" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="HotelCancellationPolicyResponse">
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="HotelCancellationPolicyForAllRooms">
+            <soap12:operation soapAction="http://TekTravel/HotelBookingApi/HotelCancellationPolicyForAllRooms"
+                              style="document"/>
+            <wsdl:input name="HotelCancellationPolicyRequest">
+                <soap12:header message="i0:HotelCancellationPolicyRequest_Headers" part="Credentials" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="HotelCancellationPolicyResponse">
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="HotelBook">
+            <soap12:operation soapAction="http://TekTravel/HotelBookingApi/HotelBook" style="document"/>
+            <wsdl:input name="HotelBookRequest">
+                <soap12:header message="i0:HotelBookRequest_Headers" part="Credentials" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="HotelBookResponse">
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="AvailabilityAndPricing">
+            <soap12:operation soapAction="http://TekTravel/HotelBookingApi/AvailabilityAndPricing" style="document"/>
+            <wsdl:input name="AvailabilityAndPricingRequest">
+                <soap12:header message="i0:AvailabilityAndPricingRequest_Headers" part="Credentials" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="AvailabilityAndPricingResponse">
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="HotelBookingDetail">
+            <soap12:operation soapAction="http://TekTravel/HotelBookingApi/HotelBookingDetail" style="document"/>
+            <wsdl:input name="HotelBookingDetailRequest">
+                <soap12:header message="i0:HotelBookingDetailRequest_Headers" part="Credentials" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="HotelBookingDetailResponse">
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GenerateInvoice">
+            <soap12:operation soapAction="http://TekTravel/HotelBookingApi/GenerateInvoice" style="document"/>
+            <wsdl:input name="GenerateInvoiceRequest">
+                <soap12:header message="i0:GenerateInvoiceRequest_Headers" part="Credentials" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="GenerateInvoiceResponse">
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Amendment">
+            <soap12:operation soapAction="http://TekTravel/HotelBookingApi/Amendment" style="document"/>
+            <wsdl:input name="AmendmentRequest">
+                <soap12:header message="i0:AmendmentRequest_Headers" part="Credentials" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="AmendmentResponse">
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="HotelCancel">
+            <soap12:operation soapAction="http://TekTravel/HotelBookingApi/HotelCancel" style="document"/>
+            <wsdl:input name="HotelCancelRequest">
+                <soap12:header message="i0:HotelCancelRequest_Headers" part="Credentials" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="HotelCancelResponse">
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="CountryList">
+            <soap12:operation soapAction="http://TekTravel/HotelBookingApi/CountryList" style="document"/>
+            <wsdl:input name="CountryListRequest">
+                <soap12:header message="i0:CountryListRequest_Headers" part="Credentials" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="CountryListResponse">
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="DestinationCityList">
+            <soap12:operation soapAction="http://TekTravel/HotelBookingApi/DestinationCityList" style="document"/>
+            <wsdl:input name="DestinationCityListRequest">
+                <soap12:header message="i0:DestinationCityListRequest_Headers" part="Credentials" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="DestinationCityListResponse">
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="TopDestinations">
+            <soap12:operation soapAction="http://TekTravel/HotelBookingApi/TopDestinations" style="document"/>
+            <wsdl:input name="TopDestinationsRequest">
+                <soap12:header message="i0:TopDestinationsRequest_Headers" part="Credentials" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="TopDestinationsResponse">
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="HotelDetails">
+            <soap12:operation soapAction="http://TekTravel/HotelBookingApi/HotelDetails" style="document"/>
+            <wsdl:input name="HotelDetailsRequest">
+                <soap12:header message="i0:HotelDetailsRequest_Headers" part="Credentials" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="HotelDetailsResponse">
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="HotelCodeList">
+            <soap12:operation soapAction="http://TekTravel/HotelBookingApi/HotelCodes" style="document"/>
+            <wsdl:input name="HotelCodesRequest">
+                <soap12:header message="i0:HotelCodesRequest_Headers" part="Credentials" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="HotelCodesResponse">
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="HotelSearchWithRooms">
+            <soap12:operation soapAction="http://TekTravel/HotelBookingApi/HotelSearchWithRooms" style="document"/>
+            <wsdl:input name="HotelSearchWithRoomsRequest">
+                <soap12:header message="i0:HotelSearchWithRoomsRequest_Headers" part="Credentials" use="literal"/>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="HotelSearchWithRoomsResponse">
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="BasicHttpBinding_IHotelService" type="i0:IHotelService">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="HotelSearch">
+            <soap:operation soapAction="http://TekTravel/HotelBookingApi/HotelSearch" style="document"/>
+            <wsdl:input name="HotelSearchRequest">
+                <soap:header message="i0:HotelSearchRequest_Headers" part="Credentials" use="literal"/>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="HotelSearchResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="AvailableHotelRooms">
+            <soap:operation soapAction="http://TekTravel/HotelBookingApi/AvailableHotelRooms" style="document"/>
+            <wsdl:input name="HotelRoomAvailabilityRequest">
+                <soap:header message="i0:HotelRoomAvailabilityRequest_Headers" part="Credentials" use="literal"/>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="HotelRoomAvailabilityResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="HotelCancellationPolicy">
+            <soap:operation soapAction="http://TekTravel/HotelBookingApi/HotelCancellationPolicy" style="document"/>
+            <wsdl:input name="HotelCancellationPolicyRequest">
+                <soap:header message="i0:HotelCancellationPolicyRequest_Headers" part="Credentials" use="literal"/>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="HotelCancellationPolicyResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="HotelCancellationPolicyForAllRooms">
+            <soap:operation soapAction="http://TekTravel/HotelBookingApi/HotelCancellationPolicyForAllRooms"
+                            style="document"/>
+            <wsdl:input name="HotelCancellationPolicyRequest">
+                <soap:header message="i0:HotelCancellationPolicyRequest_Headers" part="Credentials" use="literal"/>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="HotelCancellationPolicyResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="HotelBook">
+            <soap:operation soapAction="http://TekTravel/HotelBookingApi/HotelBook" style="document"/>
+            <wsdl:input name="HotelBookRequest">
+                <soap:header message="i0:HotelBookRequest_Headers" part="Credentials" use="literal"/>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="HotelBookResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="AvailabilityAndPricing">
+            <soap:operation soapAction="http://TekTravel/HotelBookingApi/AvailabilityAndPricing" style="document"/>
+            <wsdl:input name="AvailabilityAndPricingRequest">
+                <soap:header message="i0:AvailabilityAndPricingRequest_Headers" part="Credentials" use="literal"/>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="AvailabilityAndPricingResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="HotelBookingDetail">
+            <soap:operation soapAction="http://TekTravel/HotelBookingApi/HotelBookingDetail" style="document"/>
+            <wsdl:input name="HotelBookingDetailRequest">
+                <soap:header message="i0:HotelBookingDetailRequest_Headers" part="Credentials" use="literal"/>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="HotelBookingDetailResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GenerateInvoice">
+            <soap:operation soapAction="http://TekTravel/HotelBookingApi/GenerateInvoice" style="document"/>
+            <wsdl:input name="GenerateInvoiceRequest">
+                <soap:header message="i0:GenerateInvoiceRequest_Headers" part="Credentials" use="literal"/>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="GenerateInvoiceResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Amendment">
+            <soap:operation soapAction="http://TekTravel/HotelBookingApi/Amendment" style="document"/>
+            <wsdl:input name="AmendmentRequest">
+                <soap:header message="i0:AmendmentRequest_Headers" part="Credentials" use="literal"/>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="AmendmentResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="HotelCancel">
+            <soap:operation soapAction="http://TekTravel/HotelBookingApi/HotelCancel" style="document"/>
+            <wsdl:input name="HotelCancelRequest">
+                <soap:header message="i0:HotelCancelRequest_Headers" part="Credentials" use="literal"/>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="HotelCancelResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="CountryList">
+            <soap:operation soapAction="http://TekTravel/HotelBookingApi/CountryList" style="document"/>
+            <wsdl:input name="CountryListRequest">
+                <soap:header message="i0:CountryListRequest_Headers" part="Credentials" use="literal"/>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="CountryListResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="DestinationCityList">
+            <soap:operation soapAction="http://TekTravel/HotelBookingApi/DestinationCityList" style="document"/>
+            <wsdl:input name="DestinationCityListRequest">
+                <soap:header message="i0:DestinationCityListRequest_Headers" part="Credentials" use="literal"/>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="DestinationCityListResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="TopDestinations">
+            <soap:operation soapAction="http://TekTravel/HotelBookingApi/TopDestinations" style="document"/>
+            <wsdl:input name="TopDestinationsRequest">
+                <soap:header message="i0:TopDestinationsRequest_Headers" part="Credentials" use="literal"/>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="TopDestinationsResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="HotelDetails">
+            <soap:operation soapAction="http://TekTravel/HotelBookingApi/HotelDetails" style="document"/>
+            <wsdl:input name="HotelDetailsRequest">
+                <soap:header message="i0:HotelDetailsRequest_Headers" part="Credentials" use="literal"/>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="HotelDetailsResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="HotelCodeList">
+            <soap:operation soapAction="http://TekTravel/HotelBookingApi/HotelCodes" style="document"/>
+            <wsdl:input name="HotelCodesRequest">
+                <soap:header message="i0:HotelCodesRequest_Headers" part="Credentials" use="literal"/>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="HotelCodesResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="HotelSearchWithRooms">
+            <soap:operation soapAction="http://TekTravel/HotelBookingApi/HotelSearchWithRooms" style="document"/>
+            <wsdl:input name="HotelSearchWithRoomsRequest">
+                <soap:header message="i0:HotelSearchWithRoomsRequest_Headers" part="Credentials" use="literal"/>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="HotelSearchWithRoomsResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="HotelService">
+        <wsdl:port name="WSHttpBinding_IHotelService" binding="tns:WSHttpBinding_IHotelService">
+            <soap12:address location="http://api.tbotechnology.in/HotelAPI_V7/HotelService.svc"/>
+            <wsa10:EndpointReference>
+                <wsa10:Address>http://api.tbotechnology.in/HotelAPI_V7/HotelService.svc</wsa10:Address>
+                <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+                    <Dns>localhost</Dns>
+                </Identity>
+            </wsa10:EndpointReference>
+        </wsdl:port>
+        <wsdl:port name="BasicHttpBinding_IHotelService" binding="tns:BasicHttpBinding_IHotelService">
+            <soap:address location="http://api.tbotechnology.in/HotelAPI_V7/HotelService.svc/basic"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>
